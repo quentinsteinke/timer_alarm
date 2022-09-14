@@ -1,4 +1,5 @@
 import pygame
+from timer import Timer
 
 pygame.init()
 
@@ -16,10 +17,13 @@ blue_light = (53, 172, 212)
 
 # Screen and Icon #
 screen = pygame.display.set_mode([screen_width, screen_height])
-pygame.time.Clock.tick(fps)
+pygame.time.Clock().tick(fps)
 pygame.display.set_caption("Alarms and Timers")
 windowIcon = pygame.image.load("clock.png")
 pygame.display.set_icon(windowIcon)
+
+# Objects #
+object1 = Timer()
 
 
 # Main Function #
@@ -35,6 +39,9 @@ def main():
                     pygame.quit()
 
         screen.fill(bg)
+
+        # Draw Objects #
+        screen.blit(object1, (0,0))
 
         pygame.display.flip()
 
